@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solar System Simulator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loading-content">
+      <div class="loading-title">SOLAR SYSTEM</div>
+      <div class="loading-subtitle">Initializing simulation...</div>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="progress-text" id="progress-text">Loading textures...</div>
+    </div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <div id="crosshair"></div>
+
+  <div id="hud">
+    <div id="hud-left">
+      <div id="sim-date">Date: --</div>
+      <div id="sim-speed">Speed: 1× (1 day/s)</div>
+    </div>
+    <div id="hud-right">
+      <div id="move-speed">Movement: --</div>
+      <div id="pointer-hint" class="hint">Click to enter flight mode</div>
+    </div>
+  </div>
+
+  <div id="help-overlay">
+    <div class="help-title">CONTROLS</div>
+    <table class="help-table">
+      <tr><td>Click canvas</td><td>Lock mouse / enter flight</td></tr>
+      <tr><td>W / S</td><td>Fly forward / backward</td></tr>
+      <tr><td>A / D</td><td>Strafe left / right</td></tr>
+      <tr><td>Q / E</td><td>Move up / down</td></tr>
+      <tr><td>Mouse</td><td>Look around</td></tr>
+      <tr><td>Scroll</td><td>Change speed</td></tr>
+      <tr><td>Shift</td><td>Speed boost ×5</td></tr>
+      <tr><td>O</td><td>Toggle orbit lines</td></tr>
+      <tr><td>R</td><td>Reset to overview</td></tr>
+      <tr><td>T</td><td>Toggle real scale</td></tr>
+      <tr><td>[ / ]</td><td>Slow / speed up time</td></tr>
+      <tr><td>H</td><td>Toggle this help</td></tr>
+      <tr><td>Esc</td><td>Exit flight / click objects</td></tr>
+    </table>
+  </div>
+
+  <div id="info-panel">
+    <button id="info-close">✕</button>
+    <div id="info-name">Earth</div>
+    <div id="info-type-badge">Planet</div>
+    <div id="info-body"></div>
+  </div>
+
+  <div id="time-controls">
+    <button id="btn-slower" title="Slow down time">&lt;&lt;</button>
+    <button id="btn-pause" title="Pause/Resume">⏸</button>
+    <button id="btn-faster" title="Speed up time">&gt;&gt;</button>
+  </div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
