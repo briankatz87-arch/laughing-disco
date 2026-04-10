@@ -36,6 +36,9 @@ onProgress(pct => {
   }
 });
 
+// Safety fallback: always dismiss loading screen after 12s regardless of texture state
+setTimeout(() => ui.hideLoadingScreen(), 12000);
+
 async function buildSolarSystem() {
   // Sun
   const sunMesh = await createSun(scene);

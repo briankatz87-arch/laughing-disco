@@ -10,7 +10,13 @@ const onProgressCallbacks = [];
 function loadTexture(url, fallbackColor) {
   totalTextures++;
   return new Promise(resolve => {
-    if (!url) { resolve(null); return; }
+    if (!url) {
+      // No URL — count it done immediately so progress stays accurate
+      loadedCount++;
+      notifyProgress();
+      resolve(null);
+      return;
+    }
     textureLoader.load(
       url,
       tex => { loadedCount++; notifyProgress(); resolve(tex); },
